@@ -1,0 +1,13 @@
+<DialogueSystem>
+  <Conversations>
+    <Conversation id="1" title="Introduction">
+      <Line speaker="NPC1" emotion="happy">Welcome to our village!</Line>
+      <Line speaker="Player" emotion="neutral">Thank you! It's nice to be here.</Line>
+      <Line speaker="NPC1" emotion="curious">What brings you here?</Line>
+    </Conversation>
+    <Conversation id="2" title="Quest Start">
+      <Line speaker="NPC2" emotion="serious">We need your help to defeat the monsters.</Line>
+      <Line speaker="Player" emotion="determined">I'm ready. Tell me what to do.</Line>
+    </Conversation>
+  </Conversations>
+</DialogueSystem>
