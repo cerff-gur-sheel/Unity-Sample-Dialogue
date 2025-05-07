@@ -1,5 +1,6 @@
 using System.IO;
 using System.Xml.Serialization;
+using UnityEngine;
 
 namespace SampleDialogue.Assets.Runtime
 {
@@ -36,6 +37,18 @@ namespace SampleDialogue.Assets.Runtime
       XmlSerializer serializer = new(typeof(DialogueTree));
       using FileStream fileStream = new(filePath, FileMode.Open);
       return (DialogueTree)serializer.Deserialize(fileStream);
+    }
+
+    /// <summary>
+    /// Loads a dialogue tree from the specified XML file.
+    /// </summary>
+    /// <param name="file">the TextAsset loaded from unity</param>
+    /// <returns>The loaded <see cref="DialogueTree"/> object.</returns>
+    public static DialogueTree LoadDialogue(TextAsset file)
+    {
+      XmlSerializer serializer = new(typeof(DialogueTree));
+      using StringReader stringReader = new(file.text);
+      return (DialogueTree)serializer.Deserialize(stringReader);
     }
   }
 }

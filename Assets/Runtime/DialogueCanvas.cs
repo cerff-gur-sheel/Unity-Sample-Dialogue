@@ -97,7 +97,7 @@ namespace SampleDialogue.Assets.Runtime
       var currentText = _currentNode.Texts[_currentDialogueNodeIndex];
       characterName.text = currentText.Character;
       dialogueText.text = currentText.Content;
-      dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
+      //dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
 
       static Sprite CharacterSprite(string characterName, string emotion)
       {
@@ -156,6 +156,12 @@ namespace SampleDialogue.Assets.Runtime
         if (_currentNode.Options.Length > 0) UpdateChoiceFields();
         else dialogueCanvas.SetActive(false);
       }
+      else
+      {
+        // If there are more texts, show the next one
+        _currentDialogueNodeIndex++;
+        UpdateDIalogueFields();
+      }
     }
 
     /// <summary>
@@ -179,15 +185,17 @@ namespace SampleDialogue.Assets.Runtime
       _currentNode = _choiceOptions[index];
       _currentDialogueNodeIndex = 0;
       UpdateDIalogueFields();
+      var options = _currentNode.Options;
+      Debug.Log(_dialogueFile.Nodes[options[index].NextNodeID].ID);
     }
 
     /// <summary>
     /// Starts a new dialogue using the provided dialogue tree.
     /// </summary>
     /// <param name="dialogueFile">The dialogue tree to start.</param>
-    public void StartDialogue(DialogueTree dialogueFile)
+    public void StartDialogue(TextAsset dialogueFile)
     {
-      _dialogueFile = dialogueFile;
+      _dialogueFile = DialogueLoader.LoadDialogue(dialogueFile);
       _currentDialogueNodeIndex = 0;
       _currentNode = _dialogueFile.Nodes[_currentDialogueNodeIndex];
 

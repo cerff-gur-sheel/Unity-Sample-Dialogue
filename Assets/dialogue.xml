@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DialogueTree>
+  <Node ID="1">
+    <Texts>
+      <Text Character="João" Emotion="Feliz">Olá! Como você está?</Text>
+      <Text Character="Maria" Emotion="Curiosa">Estou bem, e você?</Text>
+    </Texts>
+    <Options>
+      <Option Text="Continuar" NextNode="2" />
+      <Option Text="Encerrar" NextNode="3" />
+    </Options>
+  </Node>
+  <Node ID="2">
+    <Texts>
+      <Text Character="João" Emotion="Feliz">Que bom ouvir isso!</Text>
+    </Texts>
+  </Node>
+  <Node ID="3">
+    <Texts>
+      <Text Character="João" Emotion="Triste">Entendo, talvez possamos conversar outra hora.</Text>
+    </Texts>
+  </Node>
+</DialogueTree>

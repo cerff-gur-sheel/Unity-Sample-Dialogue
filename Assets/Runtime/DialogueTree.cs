@@ -22,7 +22,7 @@ namespace SampleDialogue.Assets.Runtime
   /// <summary>
   /// Represents a dialogue tree containing multiple dialogue nodes.
   /// </summary>
-  [XmlRoot("Dialogue Tree")]
+  [XmlRoot("DialogueTree")]
   public class DialogueTree
   {
     /// <summary>
