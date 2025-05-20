@@ -2,26 +2,8 @@ using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
 
-namespace SampleDialogue.Assets.Runtime
+namespace SampleDialogue.Runtime
 {
-  /// <summary>
-  /// Represents a dialogue option that can be selected by the player.
-  /// </summary>
-  public class DialogueOption
-  {
-    /// <summary>
-    /// Gets or sets the text displayed for the dialogue option.
-    /// </summary>
-    [XmlAttribute("Text")]
-    public string Text { get; set; }
-
-    /// <summary>
-    /// Gets or sets the ID of the next dialogue node to navigate to when this option is selected.
-    /// </summary>
-    [XmlAttribute("NextNodeID")]
-    public int NextNodeID { get; set; }
-  }
-
   /// <summary>
   /// Manages the loading of dialogue trees from XML files.
   /// </summary>

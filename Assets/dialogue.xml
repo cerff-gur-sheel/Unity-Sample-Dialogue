@@ -2,22 +2,92 @@
 <DialogueTree>
   <Node ID="1">
     <Texts>
-      <Text Character="João" Emotion="Feliz">Olá! Como você está?</Text>
-      <Text Character="Maria" Emotion="Curiosa">Estou bem, e você?</Text>
+      <Text Character="" Emotion="">
+        Olá, essa é uma demonstração do meu plugin de diálogos na unity!
+      </Text>
+      <Text Character="Cerff" Emotion="feliz" Event="teste">
+        Meu nome é Ayslan Fontes, mas pode me chamar de Cerff que é meu apelido. :)
+      </Text>
+      <Text Character="Cerff" Emotion="Neutro">
+        Esse sistema foi feito para ser o mais simples possível, e é totalmente modular. \n
+        Esse sistema na realidade é um remake de um outro sistema de diálogos que fiz para uma 
+        certa empresa da qual não posso falar qual por motivos de direitos autorais.
+      </Text>
+      <Text Character="Cerff" Emotion="Pensativo">
+        Normalmente eu faria um dev vlog para contar sobre um sistema, mas oras, porque 
+        não usar o próprio sistema para falar sobre ele? então a seguir irei contar mais 
+        detalhes técnicos sobre ele.
+      </Text>
     </Texts>
     <Options>
-      <Option Text="Continuar" NextNode="2" />
-      <Option Text="Encerrar" NextNode="3" />
+      <Option NextNodeID="2"> Porque o ramake? </Option>
+      <Option NextNodeID="3"> Oque esse sistema faz? </Option>
+      <Option NextNodeID="4"> Como esse sistema funciona? </Option>
+      <Option NextNodeID="5"> Posso usar esse sistema no meu jogo? </Option>
+      <Option NextNodeID="6"> Tchau! </Option>
+ 
+      <Option NextNodeID="1"> TEST </Option>
     </Options>
-  </Node>
-  <Node ID="2">
-    <Texts>
-      <Text Character="João" Emotion="Feliz">Que bom ouvir isso!</Text>
-    </Texts>
   </Node>
   <Node ID="3">
     <Texts>
-      <Text Character="João" Emotion="Triste">Entendo, talvez possamos conversar outra hora.</Text>
-    </Texts>
+      <Text Character="Cerff" Emotion="feliz"> Oque mais você quer saber? </Text>
+    </Texts> 
+    <Options>
+      <Option NextNodeID="2"> Porque o ramake? </Option>
+      <Option NextNodeID="3"> Oque esse sistema faz? </Option>
+      <Option NextNodeID="4"> Como esse sistema funciona? </Option>
+      <Option NextNodeID="5"> Posso usar esse sistema no meu jogo? </Option>
+      <Option NextNodeID="6"> Tchau! </Option>
+    </Options>
   </Node>
+
+  <Node ID="2">
+    <Texts>
+      <Text Character="Cerff" Emotion="nerd">
+        bom como eu disse lá atrás esse sistema é um remake, eu refiz meu sistema de maneira 
+        muito mais leve e simples, na época que eu fiz o sistema original eu era um completo 
+        iniciante na época e não tinha muitos outros devs seniors para me ajudar a entender 
+        os erros que estava cometendo.
+      </Text>
+      <Text Character="Cerff" Emotion="feliz">
+        Eu precisava de algo para usar no meu portfólio, então uni o útil ao agradável.
+      </Text>
+    </Texts>
+    <Options>
+      <Option NextNodeID="4"> 
+        qual a diferença entre o sistema novo e o antigo? 
+      </Option>
+      <Option NextNodeID="3"> Voltar </Option>
+    </Options>
+  </Node>
+  <Node ID="4">
+    <Texts>
+      <Text Character="Cerff" Emotion="neutro">
+        Eu não posso dar muitos detalhes sobre o sistema antigo, nem sobre meu 
+        antigo trabalho.
+      </Text>
+      <Text Character="Cerff" Emotion="nerd">
+        Mas só que posso dizer é que esse sistema é mil vezes mais leve, 
+        completamente modular e mais fácil de usar. Eu usei somente 3 arquivos 
+        de código para fazer o que antes eu precisei de uns 8 ou 10. De novo, 
+        eu era completo júnior pegando um sistema difícil demais para mim, 
+        sem muita ajuda.
+      </Text>
+      <Text Character="Cerff" Emotion="feliz"> 
+        Mais alguma coisa que você queia saber? 
+      </Text>
+    </Texts> 
+    <Options>
+      <Option NextNodeID="2"> Porque o ramake? </Option>
+      <Option NextNodeID="3"> Oque esse sistema faz? </Option>
+      <Option NextNodeID="4"> Como esse sistema funciona? </Option>
+      <Option NextNodeID="5"> Posso usar esse sistema no meu jogo? </Option>
+      <Option NextNodeID="6"> Tchau! </Option>
+    </Options>
+  </Node>
+  <Node ID="5"></Node>
+  <Node ID="6"></Node>
+  <Node ID="7"></Node>
+
 </DialogueTree>

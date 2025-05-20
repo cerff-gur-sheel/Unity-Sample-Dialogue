@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-namespace SampleDialogue.Assets.Runtime
+namespace SampleDialogue.Runtime
 {
   /// <summary>
   /// Handles the UI logic for displaying dialogues and choices in the game.
@@ -28,14 +29,16 @@ namespace SampleDialogue.Assets.Runtime
     /// <summary>
     /// The index of the current text within the dialogue node.
     /// </summary>
-    private int _currentDialogueNodeIndex = 0;
+    private int _currentTextIndex = 0;
 
-    [Header("Dialogue UI")]
     /// <summary>
     /// The canvas displaying the dialogue.
     /// </summary>
+    [Header("Dialogue UI")]
     [SerializeField] private GameObject dialogueCanvas;
-
+    
+    [SerializeField] private EventPlayer eventPlayer;
+    
     /// <summary>
     /// The text element displaying the dialogue content.
     /// </summary>
@@ -50,11 +53,11 @@ namespace SampleDialogue.Assets.Runtime
     /// The image element displaying the character's emotion or portrait.
     /// </summary>
     [SerializeField] private Image dialogueImage;
-
-    [Header("Choice UI")]
+    
     /// <summary>
     /// The canvas displaying the choice options.
     /// </summary>
+    [Header("Choice UI")]
     [SerializeField] private GameObject choiceCanvas;
 
     /// <summary>
@@ -89,15 +92,18 @@ namespace SampleDialogue.Assets.Runtime
     /// <summary>
     /// Updates the dialogue UI fields with the current dialogue text.
     /// </summary>
-    private void UpdateDIalogueFields()
+    private void UpdateDialogueFields()
     {
       dialogueCanvas.SetActive(true);
       choiceCanvas.SetActive(false);
 
-      var currentText = _currentNode.Texts[_currentDialogueNodeIndex];
+      var currentText = _currentNode.Texts[_currentTextIndex];
       characterName.text = currentText.Character;
       dialogueText.text = currentText.Content;
       //dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
+      // play event
+      if(currentText.Event != null) eventPlayer.PlayEvent(currentText.Event);
+      return;
 
       static Sprite CharacterSprite(string characterName, string emotion)
       {
@@ -132,15 +138,14 @@ namespace SampleDialogue.Assets.Runtime
     {
       dialogueCanvas.SetActive(false);
       choiceCanvas.SetActive(true);
-
       _choiceOptions.Clear();
 
       var options = _currentNode.Options;
       for (var i = 0; i < options.Length; i++)
       {
         choiceButtons[i].SetActive(true);
-        _choiceTexts[i].text = options[i].Text;
-        _choiceOptions.Add(_dialogueFile.Nodes[options[i].NextNodeID]);
+        _choiceTexts[i].text = options[i].Content;
+        _choiceOptions.Add(_dialogueFile.Nodes[options[i].NextNodeID - 1]);
       }
     }
 
@@ -149,7 +154,7 @@ namespace SampleDialogue.Assets.Runtime
     /// </summary>
     public void Next()
     {
-      if (_currentDialogueNodeIndex >= _currentNode.Texts.Length - 1)
+      if (_currentTextIndex >= _currentNode.Texts.Length - 1)
       {
         // If there are options, show them
         // If no more texts or options, hide the dialogue canvas
@@ -159,8 +164,8 @@ namespace SampleDialogue.Assets.Runtime
       else
       {
         // If there are more texts, show the next one
-        _currentDialogueNodeIndex++;
-        UpdateDIalogueFields();
+        _currentTextIndex++;
+        UpdateDialogueFields();
       }
     }
 
@@ -169,10 +174,10 @@ namespace SampleDialogue.Assets.Runtime
     /// </summary>
     public void Previous()
     {
-      if (_currentDialogueNodeIndex > 0)
+      if (_currentTextIndex > 0)
       {
-        _currentDialogueNodeIndex--;
-        UpdateDIalogueFields();
+        _currentTextIndex--;
+        UpdateDialogueFields();
       }
     }
 
@@ -183,10 +188,8 @@ namespace SampleDialogue.Assets.Runtime
     public void SelectOption(int index)
     {
       _currentNode = _choiceOptions[index];
-      _currentDialogueNodeIndex = 0;
-      UpdateDIalogueFields();
-      var options = _currentNode.Options;
-      Debug.Log(_dialogueFile.Nodes[options[index].NextNodeID].ID);
+      _currentTextIndex = 0;
+      UpdateDialogueFields();
     }
 
     /// <summary>
@@ -196,10 +199,10 @@ namespace SampleDialogue.Assets.Runtime
     public void StartDialogue(TextAsset dialogueFile)
     {
       _dialogueFile = DialogueLoader.LoadDialogue(dialogueFile);
-      _currentDialogueNodeIndex = 0;
-      _currentNode = _dialogueFile.Nodes[_currentDialogueNodeIndex];
 
-      UpdateDIalogueFields();
+      _currentTextIndex = 0;
+      _currentNode = _dialogueFile.Nodes[_currentTextIndex];
+      UpdateDialogueFields();
     }
   }
 }

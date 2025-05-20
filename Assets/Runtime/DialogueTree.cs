@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+
 /*
 XML File Structure:
   - DIALOGUETREE
@@ -17,7 +18,7 @@ XML File Structure:
             - NEXTNODE
 */
 
-namespace SampleDialogue.Assets.Runtime
+namespace SampleDialogue.Runtime
 {
   /// <summary>
   /// Represents a dialogue tree containing multiple dialogue nodes.
@@ -74,9 +75,33 @@ namespace SampleDialogue.Assets.Runtime
     /// </summary>
     [XmlAttribute("Emotion")]
     public string Emotion { get; set; }
+    
+    /// <summary>
+    /// Get or sets the event.
+    /// </summary>
+    [XmlAttribute("Event")]
+    public string Event { get; set;  }
 
     /// <summary>
     /// Gets or sets the content of the dialogue text.
+    /// </summary>
+    [XmlText]
+    public string Content { get; set; }
+  }
+
+  /// <summary>
+  /// Represents a dialogue option that can be selected by the player.
+  /// </summary>
+  public class DialogueOption
+  {
+    /// <summary>
+    /// Gets or sets the ID of the next dialogue node to navigate to when this option is selected.
+    /// </summary>
+    [XmlAttribute("NextNodeID")]
+    public int NextNodeID { get; set; }
+
+    /// <summary>
+    /// Gets or sets the text displayed for the dialogue option.
     /// </summary>
     [XmlText]
     public string Content { get; set; }
