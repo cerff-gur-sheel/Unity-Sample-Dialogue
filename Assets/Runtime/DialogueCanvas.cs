@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -29,7 +28,7 @@ namespace SampleDialogue.Runtime
     /// <summary>
     /// The index of the current text within the dialogue node.
     /// </summary>
-    private int _currentTextIndex = 0;
+    private int _currentTextIndex;
 
     /// <summary>
     /// The canvas displaying the dialogue.
@@ -100,20 +99,16 @@ namespace SampleDialogue.Runtime
       var currentText = _currentNode.Texts[_currentTextIndex];
       characterName.text = currentText.Character;
       dialogueText.text = currentText.Content;
-      //dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
-      // play event
+      dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
       if(currentText.Event != null) eventPlayer.PlayEvent(currentText.Event);
       return;
 
       static Sprite CharacterSprite(string characterName, string emotion)
       {
-        // Check if characterName or emotion is empty and throw an exception if true
-        if (string.IsNullOrEmpty(characterName) || string.IsNullOrEmpty(emotion))
-        {
-          // uses default Image
-          return null;
-        }
-
+        // Check if characterName or emotion is empty and throw an exception
+        // if true, uses default Image
+        if (string.IsNullOrEmpty(characterName) || string.IsNullOrEmpty(emotion)) return null;
+        
         // Construct the path to the character sprite based on the character name and emotion
         // Note: This assumes the sprites are stored in a specific folder structure 
         // (Assets/StreamingAssets/CharacterSprites/{characterName}/{emotion}.png)
@@ -126,8 +121,16 @@ namespace SampleDialogue.Runtime
         );
 
         // Load the sprite from the specified path
-        var sprite = Resources.Load<Sprite>(path);
-        return sprite;
+        try
+        {
+          var sprite = Resources.Load<Sprite>(path);
+          return sprite;
+        }
+        catch (System.Exception e)
+        {
+          Debug.LogError($"Failed to load sprite from {path}: {e.Message}");
+          return null;
+        }
       }
     }
 
@@ -174,11 +177,9 @@ namespace SampleDialogue.Runtime
     /// </summary>
     public void Previous()
     {
-      if (_currentTextIndex > 0)
-      {
-        _currentTextIndex--;
-        UpdateDialogueFields();
-      }
+      if (_currentTextIndex <= 0) return;
+      _currentTextIndex--;
+      UpdateDialogueFields();
     }
 
     /// <summary>

@@ -20,7 +20,7 @@ namespace SampleDialogue
         /// <summary>
         /// Dictionary mapping event names to UnityEvents.
         /// </summary>
-        public Dictionary<string, UnityEvent> Events { get; private set; }
+        private Dictionary<string, UnityEvent> Events { get; set; }
 
         /// <summary>
         /// Initializes the Events dictionary from the serialized EventDictionary.

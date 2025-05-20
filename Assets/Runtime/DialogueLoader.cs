@@ -12,18 +12,6 @@ namespace SampleDialogue.Runtime
     /// <summary>
     /// Loads a dialogue tree from the specified XML file.
     /// </summary>
-    /// <param name="filePath">The file path to the XML file containing the dialogue tree.</param>
-    /// <returns>The loaded <see cref="DialogueTree"/> object.</returns>
-    public static DialogueTree LoadDialogue(string filePath)
-    {
-      XmlSerializer serializer = new(typeof(DialogueTree));
-      using FileStream fileStream = new(filePath, FileMode.Open);
-      return (DialogueTree)serializer.Deserialize(fileStream);
-    }
-
-    /// <summary>
-    /// Loads a dialogue tree from the specified XML file.
-    /// </summary>
     /// <param name="file">the TextAsset loaded from unity</param>
     /// <returns>The loaded <see cref="DialogueTree"/> object.</returns>
     public static DialogueTree LoadDialogue(TextAsset file)
