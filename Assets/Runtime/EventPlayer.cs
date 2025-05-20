@@ -21,10 +21,7 @@ namespace SampleDialogue
         /// Dictionary mapping event names to UnityEvents.
         /// </summary>
         private Dictionary<string, UnityEvent> Events { get; set; }
-
-        /// <summary>
-        /// Initializes the Events dictionary from the serialized EventDictionary.
-        /// </summary>
+        
         private void Start()
         {
             Events = dialogueEvents.ToDictionary();

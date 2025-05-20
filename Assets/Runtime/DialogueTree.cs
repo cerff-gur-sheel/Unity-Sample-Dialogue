@@ -1,22 +1,20 @@
-using System.Xml.Serialization;
-
 /*
-XML File Structure:
-  - DIALOGUETREE
-    - NODES
-      - NODE
-        - ID
-        - TEXTS
-          - TEXT
-            - CHARACTER
-            - EMOTION
-            - CONTENT
-        - OPTIONS
-          - OPTION
-            - ID
-            - TEXT
-            - NEXTNODE
+ this file is for the XML structure of the dialogue tree
+ the XML file should be structured as follows:
+ XML File Structure:
+ .DIALOGUETREE
+ └── NODES
+     ├── ID
+     ├── OPTIONS
+     │   ├── CONTENT
+     │   └── NEXTDIALOGUEID
+     └── TEXTS
+         ├── CHARACTER
+         ├── CONTENT
+         ├── EMOTION
+         └── EVENT 
 */
+using System.Xml.Serialization;
 
 namespace SampleDialogue.Runtime
 {

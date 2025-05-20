@@ -1,3 +1,6 @@
+// This script is used to manage the dialogue and choice UI in a game.
+// It handles the display of dialogue text, character names, and images,
+// as well as the selection of dialogue options.
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,7 +13,7 @@ namespace SampleDialogue.Runtime
   /// </summary>
   public class DialogueCanvas : MonoBehaviour
   {
-    /// <summary>
+   /// <summary>
     /// The dialogue tree currently being used.
     /// </summary>
     private DialogueTree _dialogueFile;

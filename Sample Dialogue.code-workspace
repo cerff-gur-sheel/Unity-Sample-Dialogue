@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "path": "/mnt/Projects/Unity Projects/SampleDialogue/"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      // unity
+      "visualstudiotoolsforunity.vstuc",
+      "kleber-swf.unity-code-snippets",
+      // csharp
+      "ms-dotnettools.csharp",
+      "Somejack.csharp-code-snippets",
+      "adrianwilczynski.namespace",
+      "k--kato.docomment",
+      "ms-dotnettools.vscode-dotnet-runtime",
+      // spell
+      "streetsidesoftware.code-spell-checker",
+    ]
+  },
+  "settings": {
+    "cSpell.words": [
+      "Behaviour",
+      "UGUI"
+    ]
+  }
+}
