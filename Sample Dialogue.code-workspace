@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "path": "/mnt/Projects/Unity Projects/SampleDialogue/"
+      "path": "./"
     }
   ],
   "extensions": {
@@ -16,13 +16,14 @@
       "k--kato.docomment",
       "ms-dotnettools.vscode-dotnet-runtime",
       // spell
-      "streetsidesoftware.code-spell-checker",
+      "streetsidesoftware.code-spell-checker"
     ]
   },
   "settings": {
-    "cSpell.words": [
-      "Behaviour",
-      "UGUI"
-    ]
+    "cSpell.words": ["Behaviour", "UGUI"],
+    "workbench.colorCustomizations": {
+      "minimap.background": "#00000000",
+      "scrollbar.shadow": "#00000000"
+    }
   }
 }
