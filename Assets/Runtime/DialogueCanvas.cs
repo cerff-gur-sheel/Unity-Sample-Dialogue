@@ -13,7 +13,7 @@ namespace SampleDialogue.Runtime
   /// </summary>
   public class DialogueCanvas : MonoBehaviour
   {
-   /// <summary>
+    /// <summary>
     /// The dialogue tree currently being used.
     /// </summary>
     private DialogueTree _dialogueFile;
