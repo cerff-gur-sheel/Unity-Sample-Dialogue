@@ -76,7 +76,8 @@ namespace SampleDialogue.Runtime
         private TextMeshProUGUI[] _choiceTexts;
 
         private bool _writingText;
-        private float _speed = 0.025f;
+        private float _speed;
+        private Coroutine _writeCoroutine;
 
         /// <summary>
         /// Initializes the dialogue and choice UI elements.
@@ -103,10 +104,7 @@ namespace SampleDialogue.Runtime
         private void UpdateDialogueFields()
         {
             if (_writingText)
-            {
-                _speed = 0.001f;
                 return;
-            }
 
             dialogueCanvas.SetActive(true);
             choiceCanvas.SetActive(false);
@@ -115,14 +113,14 @@ namespace SampleDialogue.Runtime
             characterName.text = currentText.Character;
             dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
             dialogueImage.SetNativeSize();
-            StartCoroutine(WriteText((currentText.Content)));
+            _writeCoroutine = StartCoroutine(WriteText((currentText.Content)));
             if (currentText.Event != null) eventPlayer.PlayEvent(currentText.Event);
             return;
 
             IEnumerator WriteText(string rawText)
             {
                 dialogueText.text = "";
-                _speed = 0.025f;
+                _speed = 25f;
                 var i = 0;
                 _writingText = true;
 
@@ -146,7 +144,7 @@ namespace SampleDialogue.Runtime
 
                                 case "wait":
                                     if (float.TryParse(param, out var waitTime))
-                                        yield return new WaitForSeconds(waitTime);
+                                        yield return new WaitForSeconds(waitTime / 1000);
                                     break;
 
                                 case "col":
@@ -158,6 +156,8 @@ namespace SampleDialogue.Runtime
                                     {
                                             "bold" => "<b>",
                                             "italic" => "<i>",
+                                            "nbold" => "</b>",
+                                            "nitalic" => "</i>",
                                             _ => ""
                                     };
                                     break;
@@ -183,7 +183,7 @@ namespace SampleDialogue.Runtime
                     }
 
                     dialogueText.text += rawText[i];
-                    yield return new WaitForSeconds(_speed);
+                    yield return new WaitForSeconds(_speed / 1000);
                     i++;
                 }
 
@@ -213,6 +213,7 @@ namespace SampleDialogue.Runtime
             choiceCanvas.SetActive(true);
             _choiceOptions.Clear();
             _writingText = false;
+            StopCoroutine(_writeCoroutine);
             
             var options = _currentNode.Options;
             for (var i = 0; i < options.Length; i++)
@@ -228,6 +229,12 @@ namespace SampleDialogue.Runtime
         /// </summary>
         public void Next()
         {
+            if (_writingText)
+            {
+                _speed = 1f;
+                return;
+            }
+            
             if (_currentTextIndex >= _currentNode.Texts.Length - 1)
             {
                 // If there are options, show them
@@ -249,6 +256,8 @@ namespace SampleDialogue.Runtime
         public void Previous()
         {
             if (_currentTextIndex <= 0) return;
+            _writingText = false;
+            StopCoroutine(_writeCoroutine);
             _currentTextIndex--;
             UpdateDialogueFields();
         }

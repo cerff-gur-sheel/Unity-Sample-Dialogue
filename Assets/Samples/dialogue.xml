@@ -3,7 +3,7 @@
   <Node ID="1">
     <Texts>
       <Text Character="Cerff" Emotion="waving">Hello, this is a demonstration of my dialogue asset for Unity. My name is Cerff :)</Text>
-      <Text Character="Cerff" Emotion="happy">:spd(0.01)This system :col(red)was made to be as simple as possible, and it is completely modular. Feel free to tinker with the source code and modify it as you wish. I would also love to receive PRs with your features, if applicable. The repository for this project is public.</Text>
+      <Text Character="Cerff" Emotion="happy">This system was made to be as simple as possible, and it is completely modular. Feel free to tinker with the source code and modify it as you wish. I would also love to receive PRs with your features, if applicable. The repository for this project is public.</Text>
       <Text Character="Cerff" Emotion="pointing">Normally, I would make a devlog to explain everything, but why not use the plugin itself for that? Later, I will publish it on Itch.io as a portfolio — stonks.</Text>
       <Text Character="Cerff" Emotion="holding paper">So, choose one of the questions below, and I will be happy to answer:</Text>
     </Texts>
@@ -19,8 +19,8 @@
     <Texts>
       <Text Character="Cerff" Emotion="happy">Well, let me demonstrate some interesting features:</Text>
       <Text Character="Cerff" Emotion="pointing">The first thing you might have noticed is the change of emotions of my character.</Text>
-      <Text Character="Cerff" Emotion="pointing">But you also noticed the speed control? See, I can talk extremely fast, or very slowly. This helps to give more immersion in dialogues. One example of a game that uses this is Undertale. But that’s not all...</Text>
-      <Text Character="Cerff" Emotion="thinking">I’m using Unity’s TextMesh Pro, so it is totally possible to add colors, animations, and much more to the text.</Text>
+      <Text Character="Cerff" Emotion="pointing">But you also noticed the speed control? :spd(5)See, I can talk extremely :spd(65)fast, or very slowly. :spd(25)This helps to give more immersion in dialogues. One example of a game that uses this is :dec(bold)Undertale:dec(nbold). But that’s not all...</Text>
+      <Text Character="Cerff" Emotion="thinking">I’m using Unity’s TextMesh Pro, so it is totally possible to add :col(red)colors:col(white), animations, and much more to the text.</Text>
       <Text Character="Cerff" Emotion="nerd_closed_mouth">Of course, since this is just a demo, I haven’t added all these features. But it’s quite simple to implement them: just create a tag in the XML, like :red), associate an action in the reading script, and then execute that action in the text writing script.</Text>
       <Text Character="Cerff" Emotion="holding paper">All this I talked about is explained in more detail in the asset documentation. I strongly recommend reading this document before starting to use the system, at least up to the usage instructions.</Text>
       <Text Character="Cerff" Emotion="happy">Anything else I can answer?</Text>
