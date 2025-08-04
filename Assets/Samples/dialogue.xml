@@ -3,7 +3,7 @@
   <Node ID="1">
     <Texts>
       <Text Character="Cerff" Emotion="waving">Hello, this is a demonstration of my dialogue asset for Unity. My name is Cerff :)</Text>
-      <Text Character="Cerff" Emotion="happy">This system was made to be as simple as possible, and it is completely modular. Feel free to tinker with the source code and modify it as you wish. I would also love to receive PRs with your features, if applicable. The repository for this project is public.</Text>
+      <Text Character="Cerff" Emotion="happy">:spd(0.01)This system :col(red)was made to be as simple as possible, and it is completely modular. Feel free to tinker with the source code and modify it as you wish. I would also love to receive PRs with your features, if applicable. The repository for this project is public.</Text>
       <Text Character="Cerff" Emotion="pointing">Normally, I would make a devlog to explain everything, but why not use the plugin itself for that? Later, I will publish it on Itch.io as a portfolio — stonks.</Text>
       <Text Character="Cerff" Emotion="holding paper">So, choose one of the questions below, and I will be happy to answer:</Text>
     </Texts>
