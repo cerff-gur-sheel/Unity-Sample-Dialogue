@@ -104,9 +104,9 @@ namespace SampleDialogue.Runtime
       dialogueText.text = currentText.Content;
       dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
       dialogueImage.SetNativeSize();
-      
       if(currentText.Event != null) eventPlayer.PlayEvent(currentText.Event);
       return;
+      
       static Sprite CharacterSprite(string characterName, string emotion)
       {
         if (string.IsNullOrEmpty(characterName) || string.IsNullOrEmpty(emotion)) return null;
@@ -115,7 +115,7 @@ namespace SampleDialogue.Runtime
 
         var sprite = Resources.Load<Sprite>(path);
         if (sprite == null)
-          Debug.LogError($"Sprite não encontrado em Resources: {path}");
+          Debug.LogError($"Sprite not found in resources: {path}");
 
         return sprite;
       }

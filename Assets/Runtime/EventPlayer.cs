@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SampleDialogue
+namespace SampleDialogue.Runtime
 {
   /// <summary>
   /// Plays UnityEvents associated with dialogue events.
