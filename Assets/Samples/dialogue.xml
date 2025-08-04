@@ -2,92 +2,71 @@
 <DialogueTree>
   <Node ID="1">
     <Texts>
-      <Text Character="" Emotion="">
-        Olá, essa é uma demonstração do meu plugin de diálogos na unity!
-      </Text>
-      <Text Character="Cerff" Emotion="feliz" Event="teste">
-        Meu nome é Ayslan Fontes, mas pode me chamar de Cerff que é meu apelido. :)
-      </Text>
-      <Text Character="Cerff" Emotion="Neutro">
-        Esse sistema foi feito para ser o mais simples possível, e é totalmente modular. \n
-        Esse sistema na realidade é um remake de um outro sistema de diálogos que fiz para uma 
-        certa empresa da qual não posso falar qual por motivos de direitos autorais.
-      </Text>
-      <Text Character="Cerff" Emotion="Pensativo">
-        Normalmente eu faria um dev vlog para contar sobre um sistema, mas oras, porque 
-        não usar o próprio sistema para falar sobre ele? então a seguir irei contar mais 
-        detalhes técnicos sobre ele.
-      </Text>
+      <Text Character="Cerff" Emotion="waving">Hello, this is a demonstration of my dialogue asset for Unity. My name is Cerff :)</Text>
+      <Text Character="Cerff" Emotion="happy">This system was made to be as simple as possible, and it is completely modular. Feel free to tinker with the source code and modify it as you wish. I would also love to receive PRs with your features, if applicable. The repository for this project is public.</Text>
+      <Text Character="Cerff" Emotion="pointing">Normally, I would make a devlog to explain everything, but why not use the plugin itself for that? Later, I will publish it on Itch.io as a portfolio — stonks.</Text>
+      <Text Character="Cerff" Emotion="holding paper">So, choose one of the questions below, and I will be happy to answer:</Text>
     </Texts>
     <Options>
-      <Option NextNodeID="2"> Porque o ramake? </Option>
-      <Option NextNodeID="3"> Oque esse sistema faz? </Option>
-      <Option NextNodeID="4"> Como esse sistema funciona? </Option>
-      <Option NextNodeID="5"> Posso usar esse sistema no meu jogo? </Option>
-      <Option NextNodeID="6"> Tchau! </Option>
- 
-      <Option NextNodeID="1"> TEST </Option>
-    </Options>
-  </Node>
-  <Node ID="3">
-    <Texts>
-      <Text Character="Cerff" Emotion="feliz"> Oque mais você quer saber? </Text>
-    </Texts> 
-    <Options>
-      <Option NextNodeID="2"> Porque o ramake? </Option>
-      <Option NextNodeID="3"> Oque esse sistema faz? </Option>
-      <Option NextNodeID="4"> Como esse sistema funciona? </Option>
-      <Option NextNodeID="5"> Posso usar esse sistema no meu jogo? </Option>
-      <Option NextNodeID="6"> Tchau! </Option>
+      <Option NextNodeID="2">What is this system capable of?</Option>
+      <Option NextNodeID="3">How does this dialogue system work?</Option>
+      <Option NextNodeID="4">Can I use this asset in my game?</Option>
+      <Option NextNodeID="5">I don’t want to ask questions.</Option>
     </Options>
   </Node>
 
   <Node ID="2">
     <Texts>
-      <Text Character="Cerff" Emotion="nerd">
-        bom como eu disse lá atrás esse sistema é um remake, eu refiz meu sistema de maneira 
-        muito mais leve e simples, na época que eu fiz o sistema original eu era um completo 
-        iniciante na época e não tinha muitos outros devs seniors para me ajudar a entender 
-        os erros que estava cometendo.
-      </Text>
-      <Text Character="Cerff" Emotion="feliz">
-        Eu precisava de algo para usar no meu portfólio, então uni o útil ao agradável.
-      </Text>
+      <Text Character="Cerff" Emotion="happy">Well, let me demonstrate some interesting features:</Text>
+      <Text Character="Cerff" Emotion="pointing">The first thing you might have noticed is the change of emotions of my character.</Text>
+      <Text Character="Cerff" Emotion="pointing">But you also noticed the speed control? See, I can talk extremely fast, or very slowly. This helps to give more immersion in dialogues. One example of a game that uses this is Undertale. But that’s not all...</Text>
+      <Text Character="Cerff" Emotion="thinking">I’m using Unity’s TextMesh Pro, so it is totally possible to add colors, animations, and much more to the text.</Text>
+      <Text Character="Cerff" Emotion="nerd_closed_mouth">Of course, since this is just a demo, I haven’t added all these features. But it’s quite simple to implement them: just create a tag in the XML, like :red), associate an action in the reading script, and then execute that action in the text writing script.</Text>
+      <Text Character="Cerff" Emotion="holding paper">All this I talked about is explained in more detail in the asset documentation. I strongly recommend reading this document before starting to use the system, at least up to the usage instructions.</Text>
+      <Text Character="Cerff" Emotion="happy">Anything else I can answer?</Text>
     </Texts>
     <Options>
-      <Option NextNodeID="4"> 
-        qual a diferença entre o sistema novo e o antigo? 
-      </Option>
-      <Option NextNodeID="3"> Voltar </Option>
+      <Option NextNodeID="2">What is this system capable of?</Option>
+      <Option NextNodeID="3">How does this dialogue system work? (technical details)</Option>
+      <Option NextNodeID="4">Can I use this asset in my game?</Option>
+      <Option NextNodeID="5">No more questions.</Option>
     </Options>
   </Node>
+
+  <Node ID="3">
+    <Texts>
+      <Text Character="Cerff" Emotion="nerd_closed_mouth">Glad you asked. I like to explain the system through three layers: Data, Integration, and Front-end (any resemblance to MVC is purely coincidental).</Text>
+      <Text Character="Cerff" Emotion="nerd_closed_mouth">The Data layer consists of XML files, where all dialogues are stored. I wrote them manually but have tested with some AIs like Copilot, which can generate the XMLs (with certain limitations). I plan to develop a dialogue creation script in the future.</Text>
+      <Text Character="Cerff" Emotion="nerd_closed_mouth">The Integration layer is responsible for reading the data layer files and preparing them for presentation in the front-end. This is where I implement text speed and other features.</Text>
+      <Text Character="Cerff" Emotion="nerd_closed_mouth">Finally, the Front-end handles presentation and user interaction. It’s everything configured by the Unity editor, basically.</Text>
+      <Text Character="Cerff" Emotion="happy">Anything else I can answer?</Text>
+    </Texts>
+    <Options>
+      <Option NextNodeID="2">What is this system capable of?</Option>
+      <Option NextNodeID="3">How does this dialogue system work? (technical details)</Option>
+      <Option NextNodeID="4">Can I use this asset in my game?</Option>
+      <Option NextNodeID="5">No more questions.</Option>
+    </Options>
+  </Node>
+
   <Node ID="4">
     <Texts>
-      <Text Character="Cerff" Emotion="neutro">
-        Eu não posso dar muitos detalhes sobre o sistema antigo, nem sobre meu 
-        antigo trabalho.
-      </Text>
-      <Text Character="Cerff" Emotion="nerd">
-        Mas só que posso dizer é que esse sistema é mil vezes mais leve, 
-        completamente modular e mais fácil de usar. Eu usei somente 3 arquivos 
-        de código para fazer o que antes eu precisei de uns 8 ou 10. De novo, 
-        eu era completo júnior pegando um sistema difícil demais para mim, 
-        sem muita ajuda.
-      </Text>
-      <Text Character="Cerff" Emotion="feliz"> 
-        Mais alguma coisa que você queia saber? 
-      </Text>
-    </Texts> 
+      <Text Character="Cerff" Emotion="happy">Feel free to use this asset in your game. It is free and under the MIT open-source license. Feel free to use it however you want, in public or private projects.</Text>
+      <Text Character="Cerff" Emotion="happy">I only ask that you notify me if you use it. It’s just so I know how many projects are using my system :)</Text>
+      <Text Character="Cerff" Emotion="happy">Anything else I can answer?</Text>
+    </Texts>
     <Options>
-      <Option NextNodeID="2"> Porque o ramake? </Option>
-      <Option NextNodeID="3"> Oque esse sistema faz? </Option>
-      <Option NextNodeID="4"> Como esse sistema funciona? </Option>
-      <Option NextNodeID="5"> Posso usar esse sistema no meu jogo? </Option>
-      <Option NextNodeID="6"> Tchau! </Option>
+      <Option NextNodeID="2">What is this system capable of?</Option>
+      <Option NextNodeID="3">How does this dialogue system work? (technical details)</Option>
+      <Option NextNodeID="4">Can I use this asset in my game?</Option>
+      <Option NextNodeID="5">No more questions.</Option>
     </Options>
   </Node>
-  <Node ID="5"></Node>
-  <Node ID="6"></Node>
-  <Node ID="7"></Node>
 
+  <Node ID="5">
+    <Texts>
+      <Text Character="Cerff" Emotion="thau">Okay, see you later :)</Text>
+    </Texts>
+    <Options/>
+  </Node>
 </DialogueTree>

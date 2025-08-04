@@ -2,10 +2,11 @@
 // It loads the dialogue tree from an XML file and displays it using the DialogueCanvas component.
 // Use this script as a example to start the dialogue in your game.
 // Don't forget to add the XML file to the Resources folder in Unity.
+
 using SampleDialogue.Runtime;
 using UnityEngine;
 
-namespace SampleDialogue.Tests
+namespace SampleDialogue.Samples
 {
   public class StartDialogue : MonoBehaviour
   {
