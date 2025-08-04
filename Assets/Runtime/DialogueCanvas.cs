@@ -103,37 +103,21 @@ namespace SampleDialogue.Runtime
       characterName.text = currentText.Character;
       dialogueText.text = currentText.Content;
       dialogueImage.sprite = CharacterSprite(currentText.Character, currentText.Emotion);
+      dialogueImage.SetNativeSize();
+      
       if(currentText.Event != null) eventPlayer.PlayEvent(currentText.Event);
       return;
-
       static Sprite CharacterSprite(string characterName, string emotion)
       {
-        // Check if characterName or emotion is empty and throw an exception
-        // if true, uses default Image
         if (string.IsNullOrEmpty(characterName) || string.IsNullOrEmpty(emotion)) return null;
-        
-        // Construct the path to the character sprite based on the character name and emotion
-        // Note: This assumes the sprites are stored in a specific folder structure 
-        // (Assets/StreamingAssets/CharacterSprites/{characterName}/{emotion}.png)
-        // Adjust the path as necessary to match your project structure
-        var path = System.IO.Path.Combine(
-          Application.streamingAssetsPath,
-          "CharacterSprites",
-          characterName,
-          emotion + ".png"
-        );
 
-        // Load the sprite from the specified path
-        try
-        {
-          var sprite = Resources.Load<Sprite>(path);
-          return sprite;
-        }
-        catch (System.Exception e)
-        {
-          Debug.LogError($"Failed to load sprite from {path}: {e.Message}");
-          return null;
-        }
+        var path = $"CharacterSprites/{characterName}/{emotion}";
+
+        var sprite = Resources.Load<Sprite>(path);
+        if (sprite == null)
+          Debug.LogError($"Sprite não encontrado em Resources: {path}");
+
+        return sprite;
       }
     }
 
