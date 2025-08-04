@@ -35,10 +35,10 @@
 
   <Node ID="3">
     <Texts>
-      <Text Character="Cerff" Emotion="nerd_closed_mouth">Glad you asked. I like to explain the system through three layers: Data, Integration, and Front-end (any resemblance to MVC is purely coincidental).</Text>
-      <Text Character="Cerff" Emotion="nerd_closed_mouth">The Data layer consists of XML files, where all dialogues are stored. I wrote them manually but have tested with some AIs like Copilot, which can generate the XMLs (with certain limitations). I plan to develop a dialogue creation script in the future.</Text>
-      <Text Character="Cerff" Emotion="nerd_closed_mouth">The Integration layer is responsible for reading the data layer files and preparing them for presentation in the front-end. This is where I implement text speed and other features.</Text>
-      <Text Character="Cerff" Emotion="nerd_closed_mouth">Finally, the Front-end handles presentation and user interaction. It’s everything configured by the Unity editor, basically.</Text>
+      <Text Character="Cerff" Emotion="nerd_open_mouth">Glad you asked. I like to explain the system through three layers: Data, Integration, and Front-end (any resemblance to MVC is purely coincidental).</Text>
+      <Text Character="Cerff" Emotion="nerd_open_mouth">The Data layer consists of XML files, where all dialogues are stored. I wrote them manually but have tested with some AIs like Copilot, which can generate the XMLs (with certain limitations). I plan to develop a dialogue creation script in the future.</Text>
+      <Text Character="Cerff" Emotion="nerd_open_mouth">The Integration layer is responsible for reading the data layer files and preparing them for presentation in the front-end. This is where I implement text speed and other features.</Text>
+      <Text Character="Cerff" Emotion="nerd_open_mouth">Finally, the Front-end handles presentation and user interaction. It’s everything configured by the Unity editor, basically.</Text>
       <Text Character="Cerff" Emotion="happy">Anything else I can answer?</Text>
     </Texts>
     <Options>
