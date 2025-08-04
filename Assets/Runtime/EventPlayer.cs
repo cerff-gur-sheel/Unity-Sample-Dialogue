@@ -6,38 +6,37 @@ using UnityEngine.Events;
 
 namespace SampleDialogue.Runtime
 {
-  /// <summary>
-  /// Plays UnityEvents associated with dialogue events.
-  /// </summary>
-  public class EventPlayer : MonoBehaviour
-  {
     /// <summary>
-    /// Serialized dictionary of dialogue events.
+    /// Plays UnityEvents associated with dialogue events.
     /// </summary>
-    [SerializeField]
-    private EventDictionary dialogueEvents;
-
-    /// <summary>
-    /// Dictionary mapping event names to UnityEvents.
-    /// </summary>
-    private Dictionary<string, UnityEvent> Events { get; set; }
-
-    private void Start()
+    public class EventPlayer : MonoBehaviour
     {
-      Events = dialogueEvents.ToDictionary();
-    }
+        /// <summary>
+        /// Serialized dictionary of dialogue events.
+        /// </summary>
+        [SerializeField] private EventDictionary dialogueEvents;
 
-    /// <summary>
-    /// Invokes the UnityEvent associated with the specified event name, if it exists.
-    /// Logs a warning if the event name is not found.
-    /// </summary>
-    /// <param name="event">The name of the event to invoke.</param>
-    public void PlayEvent(string @event)
-    {
-      if (Events.ContainsKey(@event)) Events[@event].Invoke();
-      else Debug.LogWarning($"Event {@event} not found in EventPlayer.");
+        /// <summary>
+        /// Dictionary mapping event names to UnityEvents.
+        /// </summary>
+        private Dictionary<string, UnityEvent> Events { get; set; }
+
+        private void Start()
+        {
+            Events = dialogueEvents.ToDictionary();
+        }
+
+        /// <summary>
+        /// Invokes the UnityEvent associated with the specified event name, if it exists.
+        /// Logs a warning if the event name is not found.
+        /// </summary>
+        /// <param name="event">The name of the event to invoke.</param>
+        public void PlayEvent(string @event)
+        {
+            if (Events.ContainsKey(@event)) Events[@event].Invoke();
+            else Debug.LogWarning($"Event {@event} not found in EventPlayer.");
+        }
     }
-  }
 
     /// <summary>
     /// Serializable dictionary for storing event name and UnityEvent pairs.
@@ -48,15 +47,14 @@ namespace SampleDialogue.Runtime
         /// <summary>
         /// Array of event dictionary items.
         /// </summary>
-        [SerializeField]
-        private EventDictionaryItem[] thisEventDictionaryItems;
+        [SerializeField] private EventDictionaryItem[] thisEventDictionaryItems;
 
         /// <summary>
         /// Converts the array of items to a dictionary.
         /// </summary>
         /// <returns>Dictionary mapping event names to UnityEvents.</returns>
         public Dictionary<string, UnityEvent> ToDictionary() =>
-            thisEventDictionaryItems.ToDictionary(item => item.eventName, item => item.@event);
+                thisEventDictionaryItems.ToDictionary(item => item.eventName, item => item.@event);
     }
 
     /// <summary>
@@ -68,13 +66,11 @@ namespace SampleDialogue.Runtime
         /// <summary>
         /// The name of the event.
         /// </summary>
-        [SerializeField]
-        public string eventName;
+        [SerializeField] public string eventName;
 
         /// <summary>
         /// The UnityEvent associated with the event name.
         /// </summary>
-        [SerializeField]
-        public UnityEvent @event;
+        [SerializeField] public UnityEvent @event;
     }
 }
